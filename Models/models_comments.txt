@@ -1,0 +1,53 @@
+002, va con el dataset_00.csv
+
+002_20_20:      ###################################
+    hidden_layers = [20, 20]
+Cost function         1.4913121461868286
+Root Mean Square Error     1.2103852033615112
+r2              -0.04224564294532226
+
+002_20_40_20:   ###################################
+
+Cost function         0.6721198558807373
+Root Mean Square Error     0.8146899938583374
+r2               -0.8277400128775035
+
+La parada se produce por early stoping tras 20 sinn mejorar.
+Voy a cambiarle el lr a ver qué pasa.
+
+Se lo he multiplicado por 10, ahora está en 0.001.
+Baja mucho más rápido desde los costes iniciales.
+Se ha parado en 'Best score: 3.870.'
+En test: se pone en:
+Cost function         0.30905985832214355
+Root Mean Square Error     0.5517528653144836
+r2               -0.255159444282342
+
+
+002_20_40_40_20:###################################
+
+Cost function         0.24501223862171173
+Root Mean Square Error     0.4925215244293213
+r2               0.4346516115121897
+
+Le pongo training_batch size = 100 y devuelve:
+      Cost function         0.8571547865867615
+ Root Mean Square Error     0.9219404458999634
+           r2               -5.601777076839789
+
+Con ese 100, le pongo el dropout = 0.3 y sale:
+      Cost function como cercana a 2.
+
+Le pongo dropout = 0.1, aún con el batch_size=100 y sale:
+      Cost function         0.2916249632835388, que no está nada mal.
+ Root Mean Square Error     0.5384483337402344
+           r2               -1.9320259910271211
+
+
+!!!!!!!!!!!!!!!!!!!!! 003_20_40_40_20 !!!!!!!!!!!!!!!!!!!!!
+      Cost function       4.9615387979429215e-05
+ Root Mean Square Error    0.007010126020759344
+           r2               0.9602851573779296
+
+
+            

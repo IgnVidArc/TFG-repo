@@ -1,0 +1,24 @@
+COMBINACIONES DE SIMULACIONES DEL TRACKING
+Perdí los normbres de las simulaciones de notas_simulaciones.
+
+las AA: Eran de track de 10m/s a 30, con controladores uno a 20, otros cada 5m/s y en el
+centro del intervalo y el otro era llamando a la NN.
+Todo era con tracking solo de la velocidad.
+imagino que el peso del error era 1000.
+y las Q = (1,1000,1000,100,1, [xi->1000]), R = (100,100)
+
+Sim_Track_BB_NN_ramp_flat:
+Esto es rampa de pendiente 1, desde los 10 m/s. Hasta los 20 m/s. Luego otros 20s de
+segmento horizontal.
+Sin conds iniciales.
+Un poco "a ver qué sale", porque le he puesto Q = (1,1000,1000,100,**10**), y R = (100,100).
+El dataset 002 se generó con un 1 para la altura.
+el coste de los errores es:
+q_xi_V = 10;
+q_xi_H = 1;
+realmente, el **10** no afecta en dada. únicamente en lo que quiera que pueda afectar (que creo
+que muy poco, los pesos que le pongas a la parte de la K1(realim) en la K2(que multiplica a los
+errores). Porque la K2 es lo único que se conserva, la K1 es sustituida por la NN.
+
+CC:
+Ya con los (1,100,100,100,10)

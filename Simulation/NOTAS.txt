@@ -1,0 +1,6 @@
+NOTES:
+
+PI_2: lo que hacía con Ignacio el viernes del roco. los tres PI:
+el del propio controlador, el de las identidades, y el de refeencia (0) [1, 1000, 1000, 0, 0]
+
+PI_3: Con el PI modificado con el motor absoluto.

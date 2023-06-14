@@ -1,0 +1,75 @@
+%% 2. QUE NO FUNCIONE UN CONTROLADOR A UNA VELOCIDAD DE NO SU TRIMADO.
+W = 2.5;
+XCG = 0.33;   
+V = 12;       
+H = 100;      
+X0=[V;0;0;0;H]; U0=[0.6;-0.1]; Y0=[];
+IX=[1 4 5];     IU=[];         IY=[];
+
+% Trim:
+[Xtrim,Utrim,Ytrim,DXtrim] = trim('UAVTrimh',X0,U0,Y0,IX,IU,IY);
+% Linear Model:
+[A,B,C,D]=linmod('UAVTrimh',Xtrim,Utrim);
+
+% Perturbation de CTA:
+CCII = [-1,0,.05,0,0]';
+x0 = CCII;
+
+% Controlador:
+Q = blkdiag(1, 10, 10, 1, 1);
+R = blkdiag(10,1);
+[K,S,P] = lqr(A,B,Q,R);
+
+%% se simula:
+sim("UAVLinCL_SAT")
+%% ERRORES:
+out = OUT_UAVLinCL_SAT;
+error = (ResponseError(out, 1:4));
+meanerror = mean(ResponseError(out, 1:4))
+
+%% PLOTS
+plot(out)
+grid on
+legend('$V$', '$\alpha$', '$\theta$', '$q$', '$H$', interpreter='latex')
+
+%%
+% ssCL = ss(A,B,C,D)
+x0 = [1, 0, 0, 0, 0];
+
+
+%%
+A = [-0.5572,-0.7814;0.7814,0];
+B = [1,-1;0,2];
+C = [1.9691,6.4493];
+sys = ss(A,B,C,0);
+step(sys)
+
+
+%%
+figure(1)
+plot(out{1}.Values.Time, out{1}.Values.Data, LineWidth=1)
+hold on
+plot(out{2}.Values.Time, out{2}.Values.Data, LineStyle='--', LineWidth=1)
+
+
+%% AHORA LO PONGO A MAYOR VELOCIDAD PERO CON LA MISMA K
+W = 2.5;
+XCG = 0.33;   
+V = 6;       
+H = 100;      
+X0=[V;0;0;0;H]; U0=[0.6;-0.1]; Y0=[];
+IX=[1 4 5];     IU=[];         IY=[];
+% Trim:
+[Xtrim,Utrim,Ytrim,DXtrim] = trim('UAVTrimh',X0,U0,Y0,IX,IU,IY);
+% Linear model:
+[A,B,C,D]=linmod('UAVTrimh',Xtrim,Utrim);
+
+%%
+save_system('UAVLinCL_SAT')
+% saveas("UAVLinCL_SAT",'test_model_latex', 'pdf')
+
+
+
+
+
+

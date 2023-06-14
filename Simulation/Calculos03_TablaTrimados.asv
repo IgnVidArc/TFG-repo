@@ -1,0 +1,23 @@
+%% 3. TABLA DE TRIMADOS, BUCLE
+
+% Vector de velocidades:
+vV = 5:40;
+
+for V = vV
+    
+end
+
+W=2.5;
+XCG=0.33;   
+V=30;       
+H=100;      
+X0=[V;0;0;0;H]; U0=[0.6;-0.1]; Y0=[];
+IX=[1 4 5];     IU=[];         IY=[];
+
+% Trim:
+[Xtrim,Utrim,Ytrim,DXtrim] = trim('UAVTrimh',X0,U0,Y0,IX,IU,IY);
+
+
+
+
+

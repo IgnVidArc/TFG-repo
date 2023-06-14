@@ -1,0 +1,71 @@
+BackUp_Simulation_001:
+BackUp_Simulation_002:
+	vV = 10:0.5:30;
+	vH = 100:100:3100;
+	R0 = blkdiag(1, 1) * 1;
+
+BackUp_Simulation_003_A:
+	x0 = [-1, 0, -.5, -.5, 0]';
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+	R = blkdiag(1, 1);
+
+BackUp_Simulation_003_B:
+	x0 = [-1, 0, -.5, -.5, 0]';
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+	R = blkdiag(100, 100);
+
+BackUp_Simulation_Dataset_003:
+dataset_003:
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+    R = blkdiag(1, 1) * 100;
+
+BackUp_Simulation_Dataset_004:	
+dataset_004
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 1000, 1000, 100, **10**);
+    R = blkdiag(1, 1) * 100;
+
+BackUp_Simulation_Dataset_005: <<DATASET A>>	
+dataset_005
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 100, 100, 100, 10); 	!!!!!!!!!!
+    R = blkdiag(100, 500);				!!!!!!!!!!
+	
+
+BackUp_Simulation_Dataset_006:	<<DATASET B>>
+dataset_006
+	cheaper simulation to see if it really does make a difference in the temporal response.
+	vV = 10:1:30;		!!
+	vH = 100:500:3100;	!!
+	Q = blkdiag(1, 100, 100, 100, 10); 	!!!!!!!!!!
+    R = blkdiag(100, 500);				!!!!!!!!!!
+
+BackUp_Simulation_Dataset_007
+	Este es cada 5m/s y cada 500 m. Para el GS.
+
+BackUp_Simulation_Dataset_008: 		<<DATASET S>>
+	Este es con las V,H que lleva el dataset 5D_002, es decir, solo 36 puntos en total.	
+	6x6
+	vV = linspace(10,35,6);
+	vH = linspace(0,6000,6);
+
+BackUp_Simulation_Dataset_009: 		<<DATASET XS>> 
+	vV = linspace(10,35,3);	!!!!!!!!!
+	vH = linspace(0,6000,3);
+
+
+	
+	
+
+BackUp_Simulation_Dataset_5D_001
+	linspaces 6 para V y 5 para el resto.
+
+BackUp_Simulation_Dataset_5D_002: 		ESTE ES EL USADO PARA 5D
+	linspaces 6 para V y H y 5 para el resto.
+	vV hasta los 35 m/s, desde los 10.
+	y además la altura va hasta los 6000 m.
+	variaciones del 25% para los parámetros.

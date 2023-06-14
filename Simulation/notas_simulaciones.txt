@@ -1,0 +1,49 @@
+BackUp_Simulation_001:
+BackUp_Simulation_002:
+	vV = 10:0.5:30;
+	vH = 100:100:3100;
+	R0 = blkdiag(1, 1) * 1;
+
+BackUp_Simulation_003_A:
+	x0 = [-1, 0, -.5, -.5, 0]';
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+	R = blkdiag(1, 1);
+
+BackUp_Simulation_003_B:
+	x0 = [-1, 0, -.5, -.5, 0]';
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+	R = blkdiag(100, 100);
+
+BackUp_Simulation_Dataset_003:
+dataset_003:
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 1000, 1000, 100, 1);
+    R = blkdiag(1, 1) * 100;
+
+BackUp_Simulation_Dataset_004:	
+dataset_004
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 1000, 1000, 100, **10**);
+    R = blkdiag(1, 1) * 100;
+
+BackUp_Simulation_Dataset_005:	
+dataset_005
+	vV = 10:0.25:30;
+	vH = 100:100:3100;
+	Q = blkdiag(1, 100, 100, 100, 10); 	!!!!!!!!!!
+    R = blkdiag(100, 500);				!!!!!!!!!!
+	
+PARA CAPÍTULO 4.2:
+    BackUp_Simulation_cap42_A:
+    sin dataset, es solo para ver qué PI da el controlador del punto A en el resto de la envolvente.
+    A: [15, 3000];
+    BackUp_Simulation_cap42_B:
+    lo mismo, pero el controlador del punto B: [27, 500]
+usamos en ambos caso el controlador de 005 para generar el inicial.
+la perturbación es la de referenica del diseño de controlador. sección 3.5
+    
+
+
+	
